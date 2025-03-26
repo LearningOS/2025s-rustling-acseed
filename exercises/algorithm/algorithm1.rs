@@ -68,9 +68,7 @@ impl<T> LinkedList<T> where T: PartialOrd {
             },
         }
     }
-	pub fn merge(list_a:LinkedList<T>,list_b:LinkedList<T>) -> Self
-	{
-
+	pub fn merge(list_a:LinkedList<T>,list_b:LinkedList<T>) -> Self {
         let mut ret = LinkedList::new();
         let mut iter_a = list_a.start;
         let mut iter_b = list_b.start;
