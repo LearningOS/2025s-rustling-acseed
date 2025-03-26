@@ -64,7 +64,11 @@ impl<T> myStack<T> {
         }
     }
     pub fn push(&mut self, elem: T) {
-        self.q1.enqueue(elem);
+        if self.q1.is_empty() {
+            self.q2.enqueue(elem);
+        } else {
+            self.q1.enqueue(elem);
+        }
     }
     pub fn pop(&mut self) -> Result<T, &str> {
         if self.is_empty() {
