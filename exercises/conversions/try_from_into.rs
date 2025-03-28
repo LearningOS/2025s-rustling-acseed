@@ -41,7 +41,7 @@ impl TryFrom<(i16, i16, i16)> for Color {
     fn try_from(tuple: (i16, i16, i16)) -> Result<Self, Self::Error> {
         match tuple {
             (red, green, blue) if red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255 => {
-                Ok(Color { red: red as u8, green: green: green as u8, blue: blue as u8 })
+                Ok(Color { red: red as u8, green: green as u8, blue: blue as u8 })
             },
             _ => Err(IntoColorError::IntConversion),
         }
@@ -54,7 +54,7 @@ impl TryFrom<[i16; 3]> for Color {
     fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
         match arr {
             [red, green, blue] if red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255 => {
-                Ok(Color { red: red as u8, green: green: green as u8, blue: blue as u8 })
+                Ok(Color { red: red as u8, green: green as u8, blue: blue as u8 })
             }
             _ => Err(IntoColorError::IntConversion),
         }
@@ -69,8 +69,8 @@ impl TryFrom<&[i16]> for Color {
             return Err(IntoColorError::BadLen);
         }
         match slice {
-            [red, green, blue] if red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255 => {
-                Ok(Color { red: red as u8, green: green: green as u8, blue: blue as u8 })
+            [red, green, blue] if *red >= 0 && *red <= 255 && *green >= 0 && *green <= 255 && *blue >= 0 && *blue <= 255 => {
+                Ok(Color { red: *red as u8, green: *green as u8, blue: *blue as u8 })
             },
             _ => Err(IntoColorError::IntConversion),
         }
