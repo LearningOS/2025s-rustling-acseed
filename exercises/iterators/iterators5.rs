@@ -55,8 +55,9 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
     // collection = [{ "variables1": Complete, "from_str": None, ... },
     //     { "variables2": Complete, ... }, ... ]
     collection.iter()
-        .map(|x| x.iter())
-        .flatten()
+        // .map(|x| x.iter())
+        // .flatten()
+        .flat_map(move |x| x.iter())
         .map(|(k, v)| if v == &value { 1 } else { 0 })
         .sum()
 }
